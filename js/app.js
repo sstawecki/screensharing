@@ -5,7 +5,7 @@ var CreateTokboxApp = function() {
         sessionId : null,
         token : null,
         session : null, //Tokbox session
-        extensionId : 'knkhmjijhhlfnajamnbbamlopaniehna', //Only for Chrome
+        extensionId : '', //Only for Chrome
         loginStream : new Rx.Subject(), //Just to check the app login
         onStreamCreated : null //Wrapping session."on stream created" event.
     };
@@ -125,10 +125,6 @@ domready.subscribe(function() {
     startbtn.show();
     onStart = Rx.Observable.fromEvent(startbtn,'click');
     onStart.subscribe(function(e){
-        if (extensionId.val() == '') {
-            alert('A Chrome extension id is needed to start');
-            return false;
-        }
         app = CreateTokboxApp();
         app.extensionId = extensionId.val();
         app.init();
