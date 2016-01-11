@@ -116,13 +116,26 @@ var CreateTokboxApp = function() {
 };
 
 
-
 var app;
-
+var onStart;
+var startbtn = $('#startbtn');
+var extensionId = $('#extensionId');
 domready.subscribe(function() {
     console.log('DOM ready');
-    app = CreateTokboxApp();
-    app.init();
+    startbtn.show();
+    onStart = Rx.Observable.fromEvent(startbtn,'click');
+    onStart.subscribe(function(e){
+        if (extensionId.val() == '') {
+            alert('A Chrome extension id is needed to start');
+            return false;
+        }
+        app = CreateTokboxApp();
+        app.extensionId = extensionId.val();
+        app.init();
+        app.loginStream.subscribe(function(d){
+            startbtn.hide();
+        });
+    });
 });
 
 

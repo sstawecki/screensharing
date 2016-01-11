@@ -2,3 +2,7 @@ body, html {
     background-color: gray;
     height: 100%;
 }
+
+#startbtn {
+    display: none;
+}
