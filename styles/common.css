@@ -9,5 +9,19 @@ body, html {
 
 .download-extension-link {
     font-family: Verdana;
-    font-size: 11;
+    font-size: 11px
+}
+
+#extensionId {
+    width: 191px;
+}
+
+.info {
+    font-family: Verdana;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.info .title {
+    margin: 5px 0;
 }

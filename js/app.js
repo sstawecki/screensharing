@@ -118,13 +118,20 @@ var CreateTokboxApp = function() {
 
 var app;
 var onStart;
+var storedExtId;
 var startbtn = $('#startbtn');
 var extensionId = $('#extensionId');
 domready.subscribe(function() {
     console.log('DOM ready');
+    storedExtId = localStorage.getItem('extensionId');
+    if (storedExtId != null) {
+        extensionId.val(storedExtId);
+    }
     startbtn.show();
     onStart = Rx.Observable.fromEvent(startbtn,'click');
     onStart.subscribe(function(e){
+        startbtn.val('Starting ');
+        localStorage.setItem('extensionId',extensionId.val());
         app = CreateTokboxApp();
         app.extensionId = extensionId.val();
         app.init();
