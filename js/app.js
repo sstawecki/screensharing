@@ -60,8 +60,8 @@ var CreateTokboxApp = function() {
                     if (event.stream.videoType === 'screen') {
                         // This is a screen-sharing stream published by another client
                         var subOptions = {
-                            width: event.stream.videoDimensions.width / 2,
-                            height: event.stream.videoDimensions.height /2
+                            width: event.stream.videoDimensions.width / 1.85,
+                            height: event.stream.videoDimensions.height /1.85
                         };
                         App.session.subscribe(event.stream, 'screen-subscriber', subOptions);
                     } else {

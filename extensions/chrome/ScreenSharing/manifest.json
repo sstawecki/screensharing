@@ -13,7 +13,8 @@
   "externally_connectable": {
     "matches": [
       "https://localhost/*",
-      "https://opentoksvr.herokuapp.com/*"
+      "https://opentoksvr.herokuapp.com/*",
+      "https://*.polakete.com/*"
     ]
   },
   "icons": {
